@@ -140,12 +140,12 @@ MpTcpPacketSink::StopApplication()     // Called at time specified by Stop
 void
 MpTcpPacketSink::HandleRead(Ptr<Socket> socket)
 {
-  NS_LOG_FUNCTION (this << m_socket);
-  Ptr<MpTcpSocketBase> mpSocket = DynamicCast<MpTcpSocketBase>(socket);
-  uint32_t dataAmount = mpSocket->Recv(size);
-  //uint32_t dataAmount = m_socket->Recv(buf, size);
-  m_totalRx += dataAmount;
-  NS_LOG_INFO ("MpTcpPacketSink:HandleRead() -> Received " << dataAmount << " bytes total Rx " << m_totalRx);
+NS_LOG_FUNCTION (this << m_socket);
+Ptr<MpTcpSocketBase> mpSocket = DynamicCast<MpTcpSocketBase>(socket); uint32_t dataAmount = mpSocket->Recv(size);
+//uint32_t dataAmount = m_socket->Recv(buf, size);
+m_totalRx += dataAmount;
+NS_LOG_INFO (Simulator::Now().GetSeconds() << "
+MpTcpPacketSink:HandleRead() -> Received " << dataAmount << " Bytes total Rx " << m_totalRx);
 }
 
 void
